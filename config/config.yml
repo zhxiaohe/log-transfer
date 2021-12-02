@@ -1,0 +1,40 @@
+mysql:
+  host: "127.0.0.1"
+  port: "3306"
+  username: root
+  password: "root"
+  database: "test"
+
+redis:
+  addr: localhost:6379
+  password: requirepass123!
+  database: "1"
+
+in:
+  type: syslog #http,syslog,grpc
+  syslog:
+    host: "0.0.0.0:514"
+    protocol: "UDP"
+  http:
+    addr: ":7808"
+  grpc:
+    addr: "0.0.0.0:8133"
+  
+    
+out:
+  type: kafka # 默认kafka 测试可使用 stdout
+  kafka:
+    brokers: "10.139.2.222:9092, 10.139.7.53:9092, 10.139.5.249:9092"
+    version: "2.2.1"
+    group: ""
+    topics: "dev_access_test"
+    assignor: ""
+    oldest: true
+    verbose: false
+
+event:
+  chansize: 20000
+
+pprof:
+  enable: true
+  addr: ":7809"

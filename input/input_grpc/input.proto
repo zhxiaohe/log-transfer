@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package input_grpc;
+
+service Greeter {
+    rpc SendMessage(Request) returns (Reply) {}
+}
+
+message Request {
+    string msg = 1;
+    string tag = 2;
+}
+
+message Reply {
+    string message = 1;
+}
